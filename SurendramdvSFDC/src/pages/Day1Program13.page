@@ -1,0 +1,15 @@
+<apex:page showHeader="false" sidebar="false" standardController="account">
+   <apex:pageBlock title="{!account.name}">
+     <apex:tabpanel switchtype="ajax">
+       <apex:tab label="{!account.name}" labelWidth="200" >
+         <apex:detail relatedList="false"/>
+       </apex:tab>
+       <apex:tab label="Contacts" labelWidth="200" >
+         <apex:relatedList list="contacts"/>
+       </apex:tab>
+       <apex:tab label="Opportunities" labelWidth="200" >
+         <apex:relatedList list="opportunities"/>
+       </apex:tab>
+     </apex:tabpanel>
+   </apex:pageBlock>
+</apex:page>

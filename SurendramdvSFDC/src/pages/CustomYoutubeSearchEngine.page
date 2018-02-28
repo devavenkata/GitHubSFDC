@@ -1,0 +1,13 @@
+<apex:page controller="CustomYoutubeSearchEngine">
+  <apex:form >
+    <apex:outputText ><b>Search String: </b></apex:outputText> <apex:inputText value="{!searchText}"/>
+    <apex:commandButton value="Search" action="{!searchIt}"/><p/>
+    <table>
+    <apex:repeat value="{!dataSetOne}" var="d">
+       <tr style="margin-top:20px"><td><apex:image url="{!d.f3}" height="150px" width="200px"/></td>
+       <td><a href="http://www.youtube.com/watch?v={!d.f4}" target="_blank" style="text-decoration: none;"><strong><apex:outputText value="{!d.f1}" style="color:#2793e6"/></strong></a></td>
+       <td><apex:outputText value="{!d.f2}" style="color:#999"/></td></tr><tr></tr>          
+    </apex:repeat>
+    </table>
+  </apex:form>
+</apex:page>

@@ -1,0 +1,25 @@
+<apex:page standardController="Account" showHeader="true" sidebar="true">
+  <apex:form >
+   <apex:pageBlock >
+   <apex:pageBlockSection >
+   <apex:inputField value="{!account.name}"/>
+   <apex:inputField value="{!account.accountNumber}"/>
+   <apex:outputField value="{!account.phone}"/>
+   </apex:pageBlockSection>
+   <apex:pageblockbuttons >
+     <apex:commandButton value="Save" action="{!save}"/>
+     <apex:commandButton value="Cancel" action="{!cancel}"/>
+   </apex:pageblockbuttons>
+   </apex:pageBlock>
+   
+   <apex:pageBlock title="List of Contacts for {!account.name}">
+     <apex:pageBlockTable value="{!account.contacts}" var="ac">
+       <apex:column value="{!ac.name}"/>
+       <apex:column value="{!ac.email}"/>
+       <apex:column value="{!ac.phone}"/>        
+     </apex:pageBlockTable>
+   
+   </apex:pageBlock>
+   
+  </apex:form>
+</apex:page>

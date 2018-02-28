@@ -1,0 +1,16 @@
+<apex:page standardController="Account">
+  Standard Controller Test
+   <br/>
+   {!Account.Name} <br/>
+   {!Account.Site} <br/>
+   <br/>
+   <apex:form >
+   OutputLabel and OutputText <br/><br/>
+   <apex:inlineEditSupport >
+   <apex:outputLabel > UserName</apex:outputLabel> <br/>
+   <apex:outputLabel value="Password"/><br/>
+   <apex:outputText value="{!Account.Name}"></apex:outputText><br/>
+   <apex:outputField value="{!Account.Name}"/>
+   </apex:inlineEditSupport>
+   </apex:form>
+</apex:page>

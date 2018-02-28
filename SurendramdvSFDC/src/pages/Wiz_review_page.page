@@ -1,0 +1,5 @@
+<apex:page controller="wizard">
+<apex:form >
+   <apex:commandButton value="Save All" action="{!save_all}"/>
+</apex:form>
+</apex:page>

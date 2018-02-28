@@ -1,0 +1,10 @@
+<apex:page controller="showCammand"> 
+<apex:form > 
+<apex:inputText value="{!inpVal}"/>
+<apex:commandLink id="commandLink" action="{!displayName}" value="Show my name">
+ <apex:param name="Name" value="myName"/> 
+</apex:commandLink> 
+<br/> My name: {!name} 
+<br/> From Input Text : {!inpVal}
+</apex:form> 
+</apex:page>

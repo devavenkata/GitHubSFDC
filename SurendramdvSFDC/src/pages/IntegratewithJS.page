@@ -1,0 +1,23 @@
+<apex:page >
+  <apex:includeScript value="{!$Resource.JqueryLibrary}"/>
+
+  <script>
+  $(document).ready(function(){
+   console.log('---First --');
+   
+});
+  $(window).ready(function(){
+   console.log('---Second--');   
+});
+
+  function MyJqueryJS()
+  {
+   console.log('---Am Here--');    
+  }
+
+  </script>
+  
+  <div id="jquerytest"> This is for Jqyery </div>
+  <input type="button" value="Click Me" name="button" onClick="MyJqueryJS()" />
+  
+</apex:page>

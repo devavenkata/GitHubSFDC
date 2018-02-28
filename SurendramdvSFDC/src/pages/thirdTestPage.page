@@ -1,0 +1,9 @@
+<apex:page sidebar="false">
+   {!$User.firstName & '' & $User.lastName}
+   <p>Today's Date is {! Today()} </p>
+   <p>Next week Date is {! Today() +7 } </p>
+   <p>Find Maxximum of {! MAX(1,4,5,6,78,9)} </p>
+   <p>Square root of 49 is {! SQRT(49)} </p>
+   <p>Is it true? {! CONTAINS('salesforce.com','force.com')}</p>
+   <p>Check value? {! IF(DAY(TODAY()) > 14, 'After the 14th','On or before the 14th')}</p>
+</apex:page>

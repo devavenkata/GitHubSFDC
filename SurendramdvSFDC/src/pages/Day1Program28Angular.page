@@ -1,0 +1,173 @@
+<apex:page controller="AngularJSExample3Cont" sidebar="false" showHeader="false" >
+   
+<!-- define angular app -->
+<html ng-app="myapp">
+ 
+<head>
+  <!-- SCROLLS -->
+   
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+ 
+  <!-- SPELLS -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+  <script data-require="underscore.js@*" data-semver="1.6.0" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+  <script>
+  
+  // create the module and name it scotchApp
+    var myapp = angular.module('myapp', ['ngRoute']);
+ 
+    // configure our routes
+    myapp.config(function($routeProvider) {
+        $routeProvider
+ 
+            // route for the home page by default
+            .when('/', {
+                templateUrl : 'pages/home.html',
+                controller  : 'mainController'
+            })
+             
+            // route for the account detail page
+            .when('/accountdetail/:id', {
+                templateUrl : 'pages/accountdetail.html',
+                controller  : 'accdetailcontroller'
+            })
+             
+              
+    });
+     
+    // create the controller and inject Angulars $scope
+    myapp.controller('mainController', function($scope, accountsData ) {
+         
+        $scope.accounts = accountsData.getAllaccounts();
+         
+    });
+     
+    myapp.controller('accdetailcontroller', function($scope, $routeParams, accountsData, $log) {
+          
+         if ($routeParams.id) {
+            $scope.thisacc = accountsData.getAccount(($routeParams.id)); 
+          }
+          else{
+            $scope.thisacc = accountsData.getAccount(1);
+          }
+    });
+ 
+      
+    <!-- Factory -->
+     
+    myapp.factory('accountsData', function($log){
+      var accounts = {!AccountsJSONString};
+       
+      <!-- Function to get all accounts -->
+      function getAllaccounts(){
+         return accounts;
+      }
+       
+      <!-- Function to get all selected account -->
+      function getAccount(Id){  
+        var filtered = _.filter(accounts, function(c){
+          return c.acc.Id === Id;
+        }); 
+        return filtered[0];
+      }
+       
+      return {
+        getAllaccounts:getAllaccounts,
+        getAccount:getAccount
+      };
+    });
+  
+  </script> 
+</head>
+ 
+<!-- define angular controller -->
+<body ng-controller="mainController">
+         
+        <!-- HOME PAGE HTML -->
+         
+        <script type="text/ng-template" id="pages/home.html">  
+            <h2>Click 'Show details' of any account, You will see the detail of Account and Contacts Here </h2>
+        </script>
+         
+        <!-- Account Detail HTML --> 
+        <script type="text/ng-template" id="pages/accountdetail.html">  
+             
+            <div class="panel panel-success">
+            <div class="panel-heading">Detail Page of Account : <b> {{thisacc.acc.Name}} </b> </div>
+              
+               <b> Account Number : </b> {{ thisacc.acc.AccountNumber}}  <br/>       
+               <b> Billing Address : </b> {{ thisacc.acc.BillingStreet}} <br/>   
+               <b> Account Owner: </b> {{ thisacc.acc.Owner.Name}}  <br/>  
+                 <br/> 
+               <b> CONTACTS </b> 
+               <table class="table table-striped" >
+                    <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Title</th>
+                          <th>Email</th>
+                          <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="con in thisacc.acc.Contacts.records">
+                        <td>{{ con.Name }}</td>
+                        <td>{{ con.Title }}</td>
+                        <td>{{ con.Email }}</td>
+                        <td>{{ con.Phone}}</td>
+                      </tr>
+                    </tbody>
+              </table>
+            </div> 
+        </script>
+         
+         
+        <!-- TOP Navigation Bar -->
+          <nav class="navbar navbar-default">
+            <div class="container">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="/">Angular Routing Example</a>
+              </div>
+               
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+              </ul>
+            </div>
+          </nav>
+           
+          <!-- Default Page Panel -->
+          <div class="panel panel-primary">
+              <!-- Default panel contents -->
+              <div class="panel-heading">Accounts</div>
+             
+              <!-- Table -->
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Account Name </th><th> Type </th><th> Number</th><th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="acc in accounts" >
+                    <td> {{acc.acc.Name}} </td>
+                    <td> {{acc.acc.Type}} </td>
+                    <td> {{acc.acc.AccountNumber}} </td>
+                    <td><a href="#accountdetail/{{acc.acc.Id}}">show details</a></td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+ 
+        <!-- angular templating -->
+        <!-- this is where content will be injected -->
+        <ng-view></ng-view>
+   
+</body>
+ 
+</html>
+   
+</apex:page>

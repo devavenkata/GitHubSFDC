@@ -1,0 +1,24 @@
+<apex:page standardController="Account" sidebar="false" showHeader="false" recordSetVar="accColl">
+  <apex:stylesheet value="{! URLFOR($Resource.Styles)}"/>
+  <apex:pageBlock >
+    <apex:pageBlockTable value="{!accColl}" var="c">
+       <apex:column value="{!c.Name}"/>    
+    </apex:pageBlockTable>
+  </apex:pageBlock>
+  
+  <apex:dataTable value="{!accColl}" var="cd">
+    <apex:column value="{!cd.name}"/>
+  </apex:dataTable>
+
+  <apex:dataList value="{!accColl}" var="cr">
+    <apex:outputText value="{!cr.name}"/>
+  </apex:dataList>
+  <br/>
+  <ul>
+  <apex:repeat value="{!accColl}" var="ce">
+    <li><apex:outputText value="{!ce.name}"/></li>
+  </apex:repeat>
+  </ul>
+
+
+</apex:page>

@@ -1,0 +1,25 @@
+<apex:page standardController="Case" extensions="PulllookupExample">
+ <apex:form >
+   <apex:pageBlock mode="mainDeatil" Title="Create Case">
+     <apex:pageblockButtons >
+       <apex:commandButton value="Save" action="{!save}"/>
+       <apex:commandButton value="Cancel" action="{!cancel}"/>       
+     </apex:pageblockButtons>
+     <apex:pageblocksection title="Detail">
+       <apex:inputfield value="{!Case.Priority}"/>
+       <apex:inputfield value="{!Case.Origin}"/>
+       <apex:inputfield value="{!Case.Status}"/>              
+     </apex:pageblocksection>
+     <apex:pageblockSection title="Account" id="Account">
+       <apex:inputField value="{!Case.accountId}">
+         <apex:actionsupport event="onchange" action="{!accountSelected}" rerender="account,msgs" status="stat"/>
+       </apex:inputField>
+       <apex:outputField value="{!Case.Account.Website}"/>
+       <apex:outputField value="{!Case.Account.Phone}"/>  
+       <apex:actionstatus startText="Getting Details" id="stat"></apex:actionstatus>     
+     </apex:pageblockSection>
+   </apex:pageBlock>
+   
+    
+ </apex:form>
+</apex:page>

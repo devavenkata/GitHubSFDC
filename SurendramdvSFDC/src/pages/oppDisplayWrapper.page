@@ -1,0 +1,18 @@
+<apex:page standardController="Opportunity" extensions="OppDisplayScreenController">
+  <apex:form >
+    <apex:pageBlock >
+      <apex:pageBlockSection title="List of Opportunities With a Checkbox">
+       </apex:pageBlockSection>
+         <apex:pageblockTable value="{!oppWrapperList}" var="opp">
+          <apex:column value="{!opp.OppRec.name}"/>
+         <apex:column value="{!opp.OppRec.Type}"/>
+         <apex:column value="{!opp.OppRec.StageName}"/>
+         <apex:column value="{!opp.OppRec.LeadSource }"/>
+         <apex:column value="{!opp.OppRec.Probability}"/>
+         <apex:column >
+            <apex:inputCheckbox value="{!opp.Oppflag}"/>
+         </apex:column>
+     </apex:pageblockTable>
+   </apex:pageBlock>
+  </apex:form>
+</apex:page>

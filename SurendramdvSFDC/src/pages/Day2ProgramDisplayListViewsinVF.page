@@ -1,0 +1,5 @@
+<apex:page showHeader="true" tabstyle="Case">
+    <apex:ListViews type="Case" />
+    <apex:ListViews type="Students__c" />
+    <apex:ListViews type="Account"/>
+</apex:page>

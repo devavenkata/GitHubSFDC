@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>payment360_REST_API</fullName>
+    <apiAccessLevel>Unrestricted</apiAccessLevel>
+    <namespacePrefix>bt_stripe</namespacePrefix>
+    <types>
+        <members>payment360_REST_API</members>
+        <name>Application</name>
+    </types>
+    <version>36.0</version>
+</Package>

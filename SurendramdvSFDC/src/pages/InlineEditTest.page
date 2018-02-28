@@ -1,0 +1,19 @@
+<apex:page standardController="Opportunity" recordSetVar="opp">
+<apex:form >
+  <apex:pageBlock title="Opportunities List">
+    <apex:pageblockTable value="{!opp}" var="o">
+      <apex:column value="{!o.name}"/>
+      <apex:column value="{!o.account.name}"/>
+      <apex:column value="{!o.Type}"/>
+      <apex:column value="{!o.Amount}"/>
+      <apex:column headerValue="Probability(Editable)">
+        <apex:outputField value="{!o.Probability}">
+        <apex:inlineEditSupport />
+        </apex:outputField>
+      </apex:column>
+      <apex:column value="{!o.StageName}"/>            
+    </apex:pageblockTable>
+  </apex:pageBlock>
+  <apex:commandButton value="QuickSave" action="{!quicksave}" id="savebutton"/>
+</apex:form>  
+</apex:page>

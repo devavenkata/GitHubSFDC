@@ -1,0 +1,31 @@
+<apex:page sidebar="false" setup="true" standardController="Account">
+<apex:form >
+<apex:sectionHeader title="First Page" subtitle="New Page" description="This is test section" help="http://www.google.com"/>
+  {!$User.FirstName} {!$User.LastName} <br/>
+  {!$Profile.Name} <br/>
+  {!$Organization.Name}
+  {!$CurrentPage.parameters.ind1}
+  {!account.name}
+  <apex:selectList size="1">
+  <apex:selectOption itemLabel="-None-" itemValue="None"/>
+  <apex:selectOption itemLabel="Jan" itemValue="one"/>
+  <apex:selectOption itemLabel="Feb" itemValue="two"/>
+  <apex:selectOption itemLabel="Mar" itemValue="three" itemDisabled="true"/>
+  <apex:selectOption itemLabel="Apr" itemValue="Four" itemDisabled="true"/>
+</apex:selectList>
+
+<apex:selectCheckboxes label="MyChoice" borderVisible="true" legendInvisible="false" legendText="My Label 123">
+  <apex:selectOption itemLabel="-None-" itemValue="None"/>
+  <apex:selectOption itemLabel="Jan" itemValue="one"/>
+  <apex:selectOption itemLabel="Feb" itemValue="two"/>
+  <apex:selectOption itemLabel="Mar" itemValue="three" itemDisabled="true"/>
+  <apex:selectOption itemLabel="Apr" itemValue="Four" itemDisabled="true"/>
+</apex:selectCheckboxes>
+</apex:form>
+<apex:outputPanel id="contactdetails">
+     <apex:detail subject="{!$CurrentPage.parameters.cid}" relatedList="false" title="false"/>
+</apex:outputPanel>
+<apex:relatedList list="cases"/>
+<apex:relatedList list="opportunities"/>
+
+</apex:page>

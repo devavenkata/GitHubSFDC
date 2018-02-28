@@ -1,0 +1,22 @@
+<apex:page sidebar="false" standardController="Surendra__c">
+ <apex:form >
+  <apex:sectionHeader title="Surendra Q & A" />
+  <apex:pageblock >
+   <apex:pageblockButtons >
+       <apex:commandButton value="save"/>
+       <apex:commandButton value="save&New"/>
+       <apex:commandButton value="cancel"/>
+   </apex:pageblockButtons>
+   <apex:pageblocksection title="Questions" columns="1">
+    <apex:pageblockSectionItem >
+      Question <apex:outputField value="{!Surendra__c.Question__c}" />
+    </apex:pageblockSectionItem>
+    <apex:pageblocksectionItem >
+      Answer <apex:outputField value="{!Surendra__c.Answer__c}" />
+    </apex:pageblocksectionItem>
+   </apex:pageblocksection>
+  </apex:pageblock>
+ 
+ </apex:form>
+
+</apex:page>

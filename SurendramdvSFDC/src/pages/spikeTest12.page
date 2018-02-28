@@ -1,0 +1,10 @@
+<apex:page Controller="WrapClassExample" showHeader="false"  sidebar="false">
+<apex:form >
+    <apex:pageBlock id="Contacts">
+        <apex:pageblockTable value="{!conts}" var="m">
+            <apex:column value="{!m.TName}"/>
+            <apex:column value="{!m.TEmail}"/>            
+        </apex:pageblockTable>
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

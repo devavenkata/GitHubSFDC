@@ -1,0 +1,15 @@
+<apex:page controller="OpportunityCLS" lightningStylesheets="{!$User.UIThemeDisplayed == 'Theme4d'}" >
+  <apex:pageblock >
+   <apex:pageblockTable value="{!Records}" var="opp">
+   <apex:column value="{!opp.Name}"/>
+   <apex:column >
+    <apex:facet name="Header">Amount</apex:facet>
+    <div style="background-color:{!If(opp.StageName =='Negotiation/Review','#7CFC00',If(opp.StageName =='Closed Won','#DEB887','#DC143C'))};">
+{!opp.StageName}
+    </div>
+   </apex:column>  
+   <apex:column value="{!opp.Amount}"/>
+   <apex:column value="{!opp.CloseDate}"/>      
+   </apex:pageblockTable>  
+  </apex:pageblock>
+</apex:page>

@@ -1,0 +1,15 @@
+<apex:page controller="SearchStringExample">
+ <apex:form >
+    <apex:pageblock title="My Search Form">
+       <apex:inputtext value="{!keyword}"/>
+       <apex:commandButton value="Search" action="{!search_now}"/>
+       <apex:pageblockTable value="{!results}" var="r">
+           <apex:column value="{!r.name}"/>
+           <apex:column value="{!r.Type}"/>
+           <apex:column value="{!r.industry}"/>
+           <apex:column value="{!r.phone}"/>
+           <apex:column value="{!r.fax}"/>            
+       </apex:pageblockTable>
+    </apex:pageblock>
+ </apex:form>
+</apex:page>

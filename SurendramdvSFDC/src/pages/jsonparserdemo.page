@@ -1,0 +1,15 @@
+<apex:page controller="JSONParserDemo" id="page" >
+    
+    <apex:pageBlock id="pageblock">
+        <apex:pageBlockSection title="JSON Parsed Values" >
+    <apex:pageBlockTable value="{!parsedquestions}" var="q" id="pageblocktable">
+        <apex:column headerValue="Question" value="{!q.Q}" />
+        <apex:column headerValue="Option1" value="{!q.o1}" />
+        <apex:column headerValue="Option2" value="{!q.o2}" />
+        <apex:column headerValue="Option3" value="{!q.o3}" />
+        <apex:column headerValue="Answer" value="{!q.a}" />
+        <apex:column headerValue="User Answer" value="{!q.ua}" />
+    </apex:pageBlockTable>
+            </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page>

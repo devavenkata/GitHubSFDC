@@ -1,0 +1,18 @@
+<apex:page standardController="Account" recordSetVar="acc">
+ <apex:form >
+ <apex:pageBlock title="List of Accounts">
+   <apex:pageblockTable value="{!acc}" var="c">
+      <apex:column value="{!c.name}"/>
+      <apex:column value="{!c.Industry}"/>
+      <apex:column value="{!c.Type}"/>   
+      <apex:column headerValue="Phone Number">
+       <apex:inputField value="{!c.phone}"/>
+      </apex:column>
+      <apex:column value="{!c.Fax}"/>
+   </apex:pageblockTable>
+ </apex:pageBlock>
+ 
+ <apex:commandButton value="Quick Save" action="{!QuickSave}"/>
+ <apex:commandButton value="Save it now" action="{!Save}"/>
+ </apex:form> 
+</apex:page>

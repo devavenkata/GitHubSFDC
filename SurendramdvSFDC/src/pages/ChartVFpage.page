@@ -1,0 +1,11 @@
+<apex:page controller="OppsController">
+   <apex:chart data="{!oppList}" width="600" height="400">
+        <apex:axis type="Category" position="bottom" fields="Name" title="Opportunities"/>
+        <apex:axis type="Numeric" position="left" fields="Amount" title="Amount"/>
+        <apex:barSeries orientation="vertical" axis="bottom" xField="Name" yfield="Amount"/>        
+   </apex:chart>
+   <apex:dataTable value="{!oppList}" var="opp">
+      <apex:column headerValue="Opportunity" value="{!opp.Name}"/>
+      <apex:column headerValue="Amount" value="{!opp.Amount}"/>      
+   </apex:dataTable>
+</apex:page>

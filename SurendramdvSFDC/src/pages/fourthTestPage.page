@@ -1,0 +1,12 @@
+<apex:page sidebar="false" standardController="account">
+   <p>Hello : {!$User.firstName & '' & $User.lastName}</p>
+   <p>My UserName : {!$User.userName}</p>
+   <p>My User id : {!$User.id}</p>
+   <p>You are viewing the {! account.name}</p>
+   <p>Accout ticker Symbol {! account.tickersymbol}</p>   
+   <p>Accout owner of the account {! account.owner.name}</p>   
+   <apex:detail relatedList="false"/> -- all the top links will hidden
+   
+   <apex:relatedList list="cases"/>
+   <apex:relatedList list="opportunities"/>
+</apex:page>

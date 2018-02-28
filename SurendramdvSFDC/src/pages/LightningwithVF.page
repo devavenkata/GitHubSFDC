@@ -1,0 +1,16 @@
+<apex:page >
+ <apex:includeLightning />
+ <div style="width:400px;height:150px;background-color:#16325c;color:white;" id="LightningContainer" />
+ <script>
+ $Lightning.use("c:TextSliderApplication", function() {
+ $Lightning.createComponent("c:SlideText",
+ { 
+ 	Text1: "Lightning Rocks"
+ },
+ "LightningContainer",
+ 	function(cmp) {
+ 
+ 	});
+ });
+ </script>
+</apex:page>

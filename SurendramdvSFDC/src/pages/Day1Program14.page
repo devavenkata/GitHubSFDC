@@ -1,0 +1,10 @@
+<apex:page showHeader="false" sidebar="false" standardController="Account" extensions="AcctExtensionClass">
+  <apex:PageBlock >
+    <apex:pageBlockTable value="{!camps}" var="c">
+       <apex:column value="{!c.Name}"/>
+       <apex:column value="{!c.StartDate}"/>
+       <apex:column value="{!c.EndDate}"/>        
+       <apex:column value="{!c.BudgetedCost}"/>        
+    </apex:pageBlockTable>    
+ </apex:PageBlock> 
+</apex:page>

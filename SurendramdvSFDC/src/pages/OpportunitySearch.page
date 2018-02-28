@@ -1,0 +1,27 @@
+<apex:page controller="OpportunitySearchController">
+<apex:form >
+  <apex:pageBlock title="Search for Opportunities by Keywrd" id="block" mode="edit">
+   <apex:pageMessages ></apex:pageMessages>
+   <apex:pageblockSection >
+     <apex:pageblockSectionItem >
+      <apex:outputLabel for="searchText"> Keyword</apex:outputLabel>
+      <apex:panelGroup >
+       <apex:inputText id="searchText" value="{!searchText}"/>
+       <apex:commandButton value="Search" action="{!search}" rerender="resultsBlock" status="status"/>
+      </apex:panelGroup>
+     </apex:pageblockSectionItem>
+   </apex:pageblockSection>
+   <apex:actionstatus id="status" startText="Searching .. Please wait..."/>
+   <apex:pageblockSection id="resultsBlock" columns="1">
+    <apex:pageblockTable value="{!searchResults}" var="o" rendered="{!NOT(ISNULL(searchResults))}"> 
+       <apex:column headerValue="Name">
+         <apex:outputLink value="/{!o.id}">{!o.Name} </apex:outputLink>
+       </apex:column>
+       <apex:column value="{!o.stageName}"/>
+       <apex:column value="{!o.Amount}"/>
+       <apex:column value="{!o.CloseDate}"/>              
+    </apex:pageblockTable>   
+   </apex:pageblockSection>   
+  </apex:pageBlock>
+</apex:form>
+</apex:page>

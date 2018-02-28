@@ -1,0 +1,47 @@
+<apex:page controller="DemoJSColumnUpdateCont">
+<apex:form >
+<apex:pageBlock >
+
+<apex:pageBlockSection >
+
+<apex:pageBlockTable value="{!opptys}" var="o" width="900">
+
+<apex:column headerValue="Opportunity Name" width="400" >
+<apex:outputField id="OpptyName" value="{!o.Name}" style="width:400px;height:10px;" />
+</apex:column>
+
+<apex:column headerValue="Account" width="300" >
+<apex:inputField id="NameId" value="{!o.AccountId}" style="width:300px;" onchange="PopualateAccType('{!$Component.NameId}','{!$Component.TypeId}');" />
+</apex:column>
+
+<apex:column headerValue="Account Type" width="200" >
+<apex:inputText id="TypeId"  style="width:200px;" />
+</apex:column>
+
+</apex:pageBlockTable>
+
+</apex:pageBlockSection>
+
+</apex:pageBlock>
+
+<apex:includeScript value="/soap/ajax/28.0/connection.js"/>
+<apex:includeScript value="/soap/ajax/28.0/apex.js"/>
+
+<script >
+
+function PopualateAccType(accNameId,accTypeId) {
+var accNameValue = document.getElementById(accNameId).value;
+
+sforce.connection.sessionId = "{!$Api.Session_ID}" ;
+var result = sforce.connection.query("Select Id, Type from Account where Name = '"+ accNameValue + "' Limit 1");
+var records = result.getArray('records');
+var accType = '';
+accType = records[0].Type ;
+document.getElementById(accTypeId).value = accType ;
+}
+
+</script>
+
+</apex:form>
+
+</apex:page>

@@ -1,0 +1,7 @@
+<apex:page controller="CustomChatter">
+   <apex:form >
+    <apex:inputText value="{!feedItem}" />
+    <apex:inputText value="{!feedComment}"/>
+    <apex:commandButton value="Post It" action="{!postIt}"/>
+   </apex:form>
+</apex:page>

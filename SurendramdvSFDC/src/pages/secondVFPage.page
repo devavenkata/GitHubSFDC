@@ -1,0 +1,8 @@
+<apex:page standardController="Account" recordSetVar="accColl">
+        <apex:pageBlock title="Contact List" id="ContactId">
+            <apex:pageBlockTable value="{!accColl}" var="c">
+                <apex:column value="{!c.Name}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        <apex:outputLink value="{!$Page.fifthPage}" target="_blank"> Click to Fifth Page</apex:outputLink>
+</apex:page>

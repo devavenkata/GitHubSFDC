@@ -1,0 +1,20 @@
+<apex:page controller="HTTPController" tabStyle="Contact">
+    <apex:form >
+    	<apex:pageBlock title="Contacts List from Webservice">
+			<apex:pageBlockTable value="{!lstwrpCon}" var="w">
+                <apex:column headerValue="Select">
+                    <apex:inputCheckbox value="{!w.ischecked}" />
+                </apex:column>
+            	<apex:column value="{!w.id}" headerValue="Contact Id"/>
+                <apex:column value="{!w.name}" headerValue="Name"/>
+                <apex:column value="{!w.email}" headerValue="Email"/>
+                <apex:column value="{!w.address}" headerValue="Address"/>
+                <apex:column value="{!w.gender}" headerValue="Gender"/>
+                <apex:column value="{!w.mobile}" headerValue="Mobile Phone"/>
+            </apex:pageBlockTable> 
+            <apex:pageBlockButtons >
+            	<apex:commandButton value="Save" action="{!doSave}" />
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

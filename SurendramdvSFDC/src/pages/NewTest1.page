@@ -1,0 +1,19 @@
+<apex:page showHeader="false" standardController="Account">
+ <apex:form >
+ <apex:sectionHeader title="First Page" subtitle="New Page" description="This is test section" help="http://www.google.com"/>
+    {!10} <br/>
+    {! 10 + 30} <br/>
+    {! 'sam' + ' kiran'} <br/>
+    {! isnull(10) }
+    {!$User.FirstName} {!$User.LastName} <br/>
+    {!$Profile.Name} <br/>
+    {!$Organization.Name}
+    {!$CurrentPage.parameters.parameter1}
+    <apex:inlineEditSupport >
+  <apex:outputLabel > UserName</apex:outputLabel> <br/>
+  <apex:outputLabel value="Password"/><br/>
+  <apex:outputText value="{!Account.Name}"></apex:outputText><br/>
+  <apex:outputField value="{!Account.Name}"/>
+  </apex:inlineEditSupport>
+  </apex:form>
+</apex:page>

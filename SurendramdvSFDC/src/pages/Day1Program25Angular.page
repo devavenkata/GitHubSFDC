@@ -1,0 +1,66 @@
+<apex:page showHeader="false" sidebar="false" controller="SearchTextController" >
+<html lang="en" ng-app="SearchOrdersApp">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+     <apex:stylesheet value="{!URLFOR($Resource.StyleCSS)}"/>
+    <link rel="stylesheet"
+          href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+    <script
+            src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script
+            src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+
+</head>
+<body style="background: #0ca3d2;" ng-controller="SalesOrderCtrl">
+<apex:form >
+<div class="container">
+<div class="navbar-wrapper">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">                
+                <div id="fw-banner">
+                    <a id="fw-logo">
+                        <div>Cisco.com Worldwide Home Test</div>
+                    </a>
+                    <div align="center" id="topx" style="color:white;">
+                    <span style="font-size:25px;font-family: 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;">Account Details Dashboard</span>                  
+                  </div>
+                </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-md-8">
+        <div class="login">
+           <apex:pageBlock >
+           <apex:inputtext value="{!keyword}"/>
+           <apex:commandButton value="Search" action="{!Search_Now}"/> 
+          </apex:pageBlock>
+        </div>
+       <div class="container">  
+           <apex:pageBlock >
+          <apex:pageBlockTable value="{!results}" var="acc" rendered="{!(results.size != 0)}">
+              <apex:column value="{!acc.Name}"/>
+              <apex:column value="{!acc.Type}"/>
+              <apex:column value="{!acc.Industry}"/>
+              <apex:column value="{!acc.Phone}"/>
+              <apex:column value="{!acc.fax}"/>      
+          </apex:pageBlockTable>
+          </apex:pageBlock>
+          <apex:outputText rendered="{!(results.size = 0)}" value="There are no contacts to display." />
+     </div>      
+    <footer class="navbar-default navbar-fixed-bottom">
+      <div class="container2">
+        <p style="text-align:center;font-size:13px; font-family: 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;">&copy; 2015 Test Systems. All Rights reserved.</p>
+      </div>
+    </footer>
+ </div>
+</div>
+</div>
+</apex:form> 
+</body>
+</html>
+</apex:page>

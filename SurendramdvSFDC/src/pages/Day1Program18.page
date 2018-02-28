@@ -1,0 +1,17 @@
+<apex:page sidebar="false" showHeader="false" controller="AccountsOppController">
+  <apex:form >
+     <apex:pageBlock >
+        <apex:pageBlockTable value="{!resultsOpp}" var="c">
+             <apex:column value="{!c.Name}"/>
+             <apex:column value="{!c.phone}"/>
+             <apex:column value="{!c.owner.name}"/>
+        </apex:pageBlockTable>
+     </apex:pageBlock>
+      <apex:pageblock title="Opportunities with Login user">
+          <apex:pageblockTable value="{!Opplogin}" var="opp">
+             <apex:column value="{!opp.name}"/>
+             <apex:column value="{!opp.owner.name}"/>                        
+          </apex:pageblockTable>
+      </apex:pageblock>
+  </apex:form>
+</apex:page>

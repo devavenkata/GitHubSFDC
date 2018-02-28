@@ -1,0 +1,29 @@
+<apex:page showHeader="false" id="pg">
+  <apex:form id="fm">
+    <script>
+       function show()
+       {
+          mynam = document.getElementById('{!$Component.FirstVal}').value;
+          myage = document.getElementById('{!$Component.pb.age}').value;
+          alert(mynam +" "+myage);
+       }
+    
+    // Another way
+     function show1()
+       {
+          mynam1 = document.getElementById('pg:fm:FirstVal').value;
+          myage1 = document.getElementById('pg:fm:pb:age').value;
+          alert(mynam1 +" "+myage1);
+       }
+    
+    </script>
+     <apex:outputLabel value="Javascript Test"/><br/>
+     
+     <apex:inputText id="FirstVal"/>
+     <apex:commandButton value="Click" onclick="show1()"/>
+     <apex:pageBlock id="pb">
+        <apex:inputtext id="age"/>
+     </apex:pageBlock>
+     
+  </apex:form>
+</apex:page>

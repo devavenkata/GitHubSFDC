@@ -1,0 +1,14 @@
+<apex:page controller="wizard">
+<apex:form >
+<apex:pageblock title="Enter Account Details">
+   <apex:pageblockSection Columns="1">
+   <apex:inputfield value="{!a.name}"/>
+   <apex:inputfield value="{!a.type}"/>
+   <apex:inputfield value="{!a.industry}"/>
+   <apex:inputfield value="{!a.phone}"/>
+   <apex:inputfield value="{!a.fax}"/>
+   </apex:pageblockSection>
+   <apex:commandButton value="Next Page" action="{!Wiz_contact_page}"/>
+</apex:pageblock>
+</apex:form>
+</apex:page>

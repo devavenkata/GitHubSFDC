@@ -1,0 +1,14 @@
+<apex:page >
+    <apex:includeScript value="/lightning/lightning.out.js"/>
+    <div id="lightning"/>
+    <script>
+    	$Lightning.use("c:CreateCandidateApplication", function(){
+        	$Lightning.createComponent("c:CreateCandidateRecordComponent",
+                                       { label:""},
+        								"lightning",
+                                       function(component){}
+                                       );
+        }); 
+    </script>
+    
+</apex:page>

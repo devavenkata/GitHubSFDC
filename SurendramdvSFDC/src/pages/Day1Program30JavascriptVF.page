@@ -1,0 +1,38 @@
+<apex:page sidebar="false" id="p1">
+<apex:form id="f1">
+<script>
+function sum(){
+var a=parseInt(document.getElementById('p1:f1:n1').value);
+var b=parseInt(document.getElementById('p1:f1:n2').value);
+var c = a+b;
+document.getElementById('p1:f1:sumVal').innerHTML=c; 
+
+}
+
+function HUcomponent()
+   {
+    var chkResult = document.getElementById('p1:f1:chk1').checked;
+
+    if(chkResult){
+    document.getElementById('p1:f1:out').style.display="block";
+    }
+    else
+    {
+    document.getElementById('p1:f1:out').style.display="none";
+    }
+  }
+</script>
+N1: <apex:inputtext id="n1"/><br/>
+N2: <apex:inputtext id="n2"/><br/>
+<apex:outputText id="sumVal"/><br/>
+
+<apex:inputcheckbox id="chk1" onclick="HUcomponent()"/> <br/>
+<apex:outputpanel id="out" style="display:none;">
+name: <apex:inputtext /> <br/>
+City: <apex:inputtext /><br/>
+<apex:commandButton value="Save"/>
+</apex:outputpanel>
+
+<apex:commandButton value="Sum" onclick="sum()" />
+</apex:form>
+</apex:page>

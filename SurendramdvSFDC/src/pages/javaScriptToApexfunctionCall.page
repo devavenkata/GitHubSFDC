@@ -1,0 +1,39 @@
+<apex:page controller="CallAccountInsert">
+  <script>
+    function validate()
+    {
+       if(document.getElementById('{!$Component.frm.pb.pbs.pbsi1.nam}').value =='')
+       {
+         alert('Account Name is Mandatory');
+       }
+       else if(document.getElementById('{!$Component.frm.pb.pbs.pbsi2.phone}').value =='')
+       {
+         alert('Phone Number is Mandatory');
+       }
+       else
+       {
+         callsubmt();
+         alert('Account has been created Successfully');
+       }   
+    }
+    
+  </script>
+  <apex:form id="frm">
+    <apex:actionFunction action="{!submit}" name="callsubmt" rerender="pb"/>
+    <apex:pageBlock id="pb">
+       <apex:pageBlockSection id="pbs" columns="1">
+            <apex:pageblockSectionItem id="pbsi1" >
+                <apex:outputLabel value="Account Name"/>
+                <apex:inputText value="{!nam}" id="nam"/>
+            </apex:pageblockSectionItem>
+            <apex:pageblockSectionItem id="pbsi2">
+                <apex:outputLabel value="Phone Number"/>
+                <apex:inputText value="{!Phone}" id="phone"/>
+            </apex:pageblockSectionItem>
+       </apex:pageBlockSection>    
+       <apex:pageblockButtons >
+         <apex:commandButton value="Insert" onclick="validate()"/>
+       </apex:pageblockButtons>
+    </apex:pageBlock>  
+  </apex:form>
+</apex:page>

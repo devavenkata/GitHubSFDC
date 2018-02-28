@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Record Job</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Record Jobs</value>
+    </caseValues>
+    <fields>
+        <help><!-- If checked the user has been alerted of the record job&apos;s finished status. --></help>
+        <label><!-- Is Read --></label>
+        <name>IsRead__c</name>
+    </fields>
+    <fields>
+        <help><!-- The details of the background job performed if no job id was specified. --></help>
+        <label><!-- Job Details --></label>
+        <name>JobDetails__c</name>
+    </fields>
+    <fields>
+        <label><!-- Job Id --></label>
+        <name>JobId__c</name>
+    </fields>
+    <fields>
+        <help><!-- The status of the background job performed if no job id was specified. --></help>
+        <label><!-- Job Status --></label>
+        <name>JobStatus__c</name>
+    </fields>
+    <fields>
+        <label><!-- Record Id --></label>
+        <name>RecordId__c</name>
+    </fields>
+    <fields>
+        <help><!-- Url to redirect to once the job finishes. --></help>
+        <label><!-- Redirect URL --></label>
+        <name>RedirectUrl__c</name>
+    </fields>
+    <fields>
+        <help><!-- The stacktrace of the background job performed if no job id was specified. --></help>
+        <label><!-- Stacktrace --></label>
+        <name>Stacktrace__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,9 @@
+<apex:page standardController="Account" showHeader="false" sidebar="false" recordsetVar="accVals">
+ <apex:stylesheet value="{! URLFOR($Resource.Styles)}"/>
+  <apex:pageBlock >
+    <apex:pageblockTable var="acc" value="{!accVals}">
+      <apex:column value="{!acc.name}"/>
+    </apex:pageblockTable>
+  </apex:pageBlock>
+  <apex:outputLink value="{!$Page.fifthPage}" target="__blank"> Click to go Fifth Page</apex:outputLink>
+</apex:page>

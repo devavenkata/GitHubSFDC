@@ -1,0 +1,15 @@
+<apex:page controller="PageNavigationController1">
+<apex:form >
+  <apex:pageBlock title="Account First Page ">
+   <apex:pageblockSection >
+     <apex:pageblockSectionItem >
+      <apex:panelGroup >
+       <apex:outputLabel ><b>Account Number: </b></apex:outputLabel>
+       <apex:inputText value="{!account.name}"/><br/><br/>
+       <apex:commandButton value="Save" action="{!save}" />
+      </apex:panelGroup>
+     </apex:pageblockSectionItem>
+   </apex:pageblockSection>
+  </apex:pageBlock>
+</apex:form>
+</apex:page>

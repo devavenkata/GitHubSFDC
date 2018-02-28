@@ -1,0 +1,18 @@
+<apex:page controller="PageNavigationController2">
+<apex:form >
+  <apex:pageBlock title="Account Second Page ">
+   <apex:pageblockSection >
+     <apex:pageblockSectionItem >
+      <apex:panelGroup >
+        <apex:outputLabel >Account Name : </apex:outputLabel>
+        <apex:outputText value="{!account.name}"/><br/>
+        <apex:outputLabel >Phone Number : </apex:outputLabel>
+        <apex:inputText value="{!account.phone}"/>       
+       <br/><br/>
+       <apex:commandButton value="Update" action="{!save}" />
+      </apex:panelGroup>
+     </apex:pageblockSectionItem>
+   </apex:pageblockSection>
+  </apex:pageBlock>
+</apex:form>
+</apex:page>

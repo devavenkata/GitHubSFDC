@@ -1,0 +1,20 @@
+<!-- Using java script for validation in a visualforce page -->
+<apex:page standardcontroller="Account">
+  <apex:form >
+        <apex:pageBlock >
+           Expected price  : <apex:inputText id="inptpriceID"/>
+                       <apex:commandButton onclick="validateFunction('{!$Component.inptpriceID}')" value=" Submit Price"/>
+        </apex:pageBlock>
+  </apex:form>
+  
+  <!-- Java script starts Here -->
+  <script>
+   function validateFunction(amountinputID){
+       var inputAmount = document.getElementById(amountinputID).value;
+         if(inputAmount == ''){
+            alert('Please enter amount before submitting price');
+         } 
+  }
+  </script> 
+ <!-- java script ends here -->  
+</apex:page>

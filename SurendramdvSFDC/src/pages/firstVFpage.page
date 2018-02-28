@@ -1,0 +1,28 @@
+<apex:page tabStyle="Students__c">
+ <apex:form >
+  <apex:sectionHeader title="student Edit" subtitle="New Student"/>
+  <apex:pageblock title="student Edit" >
+   <apex:pageblockButtons >
+       <apex:commandButton value="save"/>
+       <apex:commandButton value="save&New"/>
+       <apex:commandButton value="cancel"/>
+   </apex:pageblockButtons>
+   <apex:pageblocksection title="Information" columns="1">
+    <apex:pageblockSectionItem >
+      Student Name <apex:inputtext />
+    </apex:pageblockSectionItem>
+    <apex:pageblocksectionItem >
+      Id <apex:inputtext />  
+    </apex:pageblocksectionItem>
+    <apex:pageblocksectionItem >
+      dob <apex:inputtext /> 
+    </apex:pageblocksectionItem>
+    <apex:pageblocksectionItem >
+      Address <apex:inputtextarea />
+    </apex:pageblocksectionItem>
+   </apex:pageblocksection>
+  </apex:pageblock>
+ 
+ </apex:form>
+
+</apex:page>

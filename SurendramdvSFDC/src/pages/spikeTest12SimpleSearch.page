@@ -1,0 +1,12 @@
+<apex:page controller="OppsControllerSearch">
+  <apex:form >
+     <apex:inputText id="searchStr" value="{!searchStrVal}"/>
+     <apex:commandButton value="Search" action="{!searchFor}" rerender="resultsBlock" status="status"/>
+     <apex:pageBlock id="resultsBlock">
+     <apex:pageblockTable value="{!searchResults}" var="o" rendered="{!NOT(ISNULL(searchResults))}" >
+      <apex:column value="{!o.Name}"/>
+      <apex:column value="{!o.Id}" />     
+    </apex:pageblockTable>  
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

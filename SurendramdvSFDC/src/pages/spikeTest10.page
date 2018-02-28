@@ -1,0 +1,16 @@
+<apex:page controller="OppPaginationController" tabStyle="Opportunity">
+    <apex:form >
+      <apex:pageBlock id="pbId">
+             <apex:pageBlockTable value="{!Opportunities}" var="oppObj">                                     
+                    <apex:column value="{!oppObj.Name}"/>
+                    <apex:column value="{!oppObj.Account.Name}"/>
+            </apex:pageBlockTable>
+            <apex:panelGrid columns="8">
+                <apex:commandButton status="fetchStatus" reRender="pbId" value="First" action="{!setCon.first}" disabled="{!!setCon.hasPrevious}" title="First Page"/> 
+                <apex:commandButton status="fetchStatus" reRender="pbId" value="Previous" action="{!setCon.previous}" disabled="{!!setCon.hasPrevious}" title="Previous Page"/>  
+                <apex:commandButton status="fetchStatus" reRender="pbId" value="Next" action="{!setCon.next}" disabled="{!!setCon.hasNext}" title="Next Page"/> 
+                <apex:commandButton status="fetchStatus" reRender="pbId" value="Last" action="{!setCon.last}" disabled="{!!setCon.hasNext}" title="Last Page"/> 
+            </apex:panelGrid>
+      </apex:pageBlock>
+    </apex:form>                
+</apex:page>

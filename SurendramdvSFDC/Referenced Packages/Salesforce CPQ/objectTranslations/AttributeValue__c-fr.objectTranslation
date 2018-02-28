@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Valeur d&apos;attribut</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Valeurs d&apos;attribut</value>
+    </caseValues>
+    <fields>
+        <label>Ressource</label>
+        <name>Asset__c</name>
+        <relationshipLabel>Valeurs d&apos;attribut</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Attribut</label>
+        <name>Attribute__c</name>
+        <relationshipLabel>Valeurs d&apos;attribut</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Produit favori</label>
+        <name>FavoriteProduct__c</name>
+        <relationshipLabel>Valeurs d&apos;attribut</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Produit commandé</label>
+        <name>OrderItem__c</name>
+        <relationshipLabel>Valeurs d&apos;attribut</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Ligne de devis</label>
+        <name>QuoteLine__c</name>
+        <relationshipLabel>Valeurs d&apos;attribut</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Abonnement</label>
+        <name>Subscription__c</name>
+        <relationshipLabel>Valeurs d&apos;attribut</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Valeur (date heure)</label>
+        <name>ValueDateTime__c</name>
+    </fields>
+    <fields>
+        <label>Valeur (date)</label>
+        <name>ValueDate__c</name>
+    </fields>
+    <fields>
+        <label>Valeur (chiffre)</label>
+        <name>ValueNumber__c</name>
+    </fields>
+    <fields>
+        <label>Valeur (texte)</label>
+        <name>Value__c</name>
+    </fields>
+    <gender>Feminine</gender>
+    <nameFieldLabel>Nom</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

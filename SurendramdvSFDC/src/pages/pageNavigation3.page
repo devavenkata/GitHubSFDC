@@ -1,0 +1,17 @@
+<apex:page controller="PageNavigationController3">
+<apex:form >
+  <apex:pageBlock title="Account Third Page ">
+   <apex:pageblockSection >
+     <apex:pageblockSectionItem >
+      <apex:panelGroup >
+      <apex:outputLabel ><b>Account Name: </b></apex:outputLabel>
+       <apex:outputText value="{!account.name}"/><br/><br/>
+      <apex:outputLabel ><b>Phone Number: </b></apex:outputLabel>
+       <apex:outputText value="{!account.phone}"/>       
+       <br/><br/>
+      </apex:panelGroup>
+     </apex:pageblockSectionItem>
+   </apex:pageblockSection>
+  </apex:pageBlock>
+</apex:form>
+</apex:page>

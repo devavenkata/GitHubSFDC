@@ -1,0 +1,21 @@
+<apex:page sidebar="false" showHeader="false" setup="true" standardController="Account">
+ <apex:sectionHeader title="Student Edit" subtitle="New Student"/>
+ <apex:form >
+ <apex:pageBlock >
+     <apex:pageblockButtons >
+         <apex:commandButton value="Save"/>
+         <apex:commandButton value="Save & New"/>
+         <apex:commandButton value="Cancel"/>
+     </apex:pageblockButtons>
+     <apex:pageBlockSection >
+         <apex:pageblockSectionItem >
+          Student Name : <apex:inputText />
+         </apex:pageblockSectionItem>
+         <apex:pageblockSectionItem >
+          DOB :<apex:inputText />
+         </apex:pageblockSectionItem>
+
+     </apex:pageBlockSection>
+ </apex:pageBlock>
+ </apex:form>
+</apex:page>

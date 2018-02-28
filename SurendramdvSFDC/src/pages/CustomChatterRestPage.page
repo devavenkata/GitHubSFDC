@@ -1,0 +1,5 @@
+<apex:page >
+<apex:form >
+  <apex:commandButton value="Post It" action="{!postIt}"/>
+</apex:form>
+</apex:page>

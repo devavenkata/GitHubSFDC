@@ -1,0 +1,14 @@
+<apex:page sidebar="false" showHeader="false" setup="true" standardController="Account">
+  <apex:form >
+     <apex:sectionHeader title="First Page" subtitle="New Page" Description="This is test section" help="http://www.google.com"/>
+     <!--https://c.na17.visual.force.com/apex/Day1Program1?param1=surendra&id=001o00000085Q6P -->
+     {!10+30}<br/>
+     {!isnull(10)}<br/>
+     {!$Organization.Name}     
+     {!$Profile.Name}
+     {!$User.FirstName +' '+$User.LastName}<br/>
+     {!$CurrentPage.parameters.param1}
+     <p>Standard Controller Test </p>
+     {!Account.name}
+  </apex:form>
+</apex:page>

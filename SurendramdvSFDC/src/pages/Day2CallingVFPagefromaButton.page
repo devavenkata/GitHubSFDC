@@ -1,0 +1,14 @@
+<apex:page controller="AccountController">
+  <apex:form >
+  <apex:pagemessages />
+        <apex:pageblock title="Manage this account" mode="edit">
+            <apex:pageblockbuttons >
+                <apex:commandbutton action="{!saveItem}" value="Save">
+                <apex:commandbutton action="{!cancelAction}" value="Cancel">
+            </apex:commandbutton></apex:commandbutton></apex:pageblockbuttons>
+            <apex:pageblocksection title="Account Details" columns="2">                            
+                <apex:outputfield label="Account Name: " value="{!accountItem.Name}">
+            </apex:outputfield></apex:pageblocksection>
+        </apex:pageblock>
+    </apex:form>   
+</apex:page>

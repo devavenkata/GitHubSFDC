@@ -1,0 +1,11 @@
+<apex:page controller="OppwithLoginUserController">
+   <apex:form >
+       <apex:pageblock title="Opportunities with Login user">
+           <apex:pageblockTable value="{!Opplogin}" var="opp">
+              <apex:column value="{!opp.name}"/>
+              <apex:column value="{!opp.owner.name}"/>                         
+           </apex:pageblockTable>
+       
+       </apex:pageblock>
+   </apex:form>
+</apex:page>

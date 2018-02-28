@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Ensemble d’attributs de produit</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Ensembles d’attributs de produit</value>
+    </caseValues>
+    <fields>
+        <label>Ensembles d&apos;attributs</label>
+        <name>AttributeSet__c</name>
+        <relationshipLabel><!-- Product Attribute Sets --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>Unité de gestion de stock configurée</label>
+        <name>ConfiguredSKU__c</name>
+    </fields>
+    <fields>
+        <label>Nom du produit</label>
+        <name>ProductName__c</name>
+    </fields>
+    <fields>
+        <label>Nom de l&apos;option produit</label>
+        <name>ProductOptionName__c</name>
+    </fields>
+    <fields>
+        <label>Option produit</label>
+        <name>ProductOption__c</name>
+        <relationshipLabel><!-- Product Attribute Sets --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>Séquence</label>
+        <name>Sequence__c</name>
+    </fields>
+    <gender>Masculine</gender>
+    <layouts>
+        <layout>Product Attribute Set Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Ensemble d&apos;attributs produit</nameFieldLabel>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

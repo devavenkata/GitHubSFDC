@@ -1,0 +1,34 @@
+<apex:page standardController="contact" tabStyle="contact" showHeader="false" sidebar="false">
+  <!-- Style -->
+  <style>
+    .activeTab{background-color:white;font-size:18px;height:20px; border:0px solid;color:gray;}
+    .inactivetab{background-color:gray;font-size:15px;height:20px; border:0px solid;color:white;}
+    .tabstyle{background-color:white}
+  </style>
+
+   <apex:sectionHeader title="<insert contact name>" subtitle="<insert household name>"/>
+   <apex:pageblock title="Description">
+      Description <br/>
+      Email <br/>
+      Phone
+   </apex:pageblock>
+   <apex:tabPanel switchType="client" activeTabClass="activeTab" inactiveTabClass="inactiveTab" contentClass="tabstyle">
+     <apex:tab label="Details">
+       <apex:pageblock mode="maindetail">
+          <apex:detail title="false" inlineEdit="true" relatedList="false" showChatter="false"/>
+       </apex:pageblock>
+     </apex:tab>   
+     <apex:tab label="Tasks">
+       <apex:relatedList list="openactivities"/>
+       <apex:relatedList list="activityhistories"/>
+     </apex:tab>   
+     <apex:tab label="Donations">
+     </apex:tab>   
+     <apex:tab label="Cases">
+       <apex:relatedList list="cases"/>
+     </apex:tab>   
+     <apex:tab label="Household">
+     </apex:tab>   
+   </apex:tabPanel>
+  
+</apex:page>

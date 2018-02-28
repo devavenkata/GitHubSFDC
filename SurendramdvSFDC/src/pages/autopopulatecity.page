@@ -1,0 +1,30 @@
+<apex:page standardController="Candidate__c" extensions="CandidateExtension" >
+ <apex:form >
+    <apex:pageBlock >
+      <apex:pageblockSection >
+          <apex:inputText value="{!name}" label="Name"/>
+          <apex:inputText value="{!phone}" label="Phone Number"/>
+          <apex:inputText value="{!email}" label="Email"/>
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Country"/>
+              <apex:selectList size="1" value="{!Country}">
+                <apex:selectOptions value="{!countryobj}"/>
+                <apex:actionSupport event="onchange" reRender="cities"/>
+              </apex:selectList>
+          </apex:pageBlockSectionItem>                
+           <apex:pageBlockSectionItem >
+            <apex:outputLabel value="City"/>
+              <apex:selectList size="1" value="{!City}">
+                <apex:selectOptions value="{!cityobj}"/>
+              </apex:selectList>
+          </apex:pageBlockSectionItem>             
+      </apex:pageblockSection>
+      <apex:pageBlockButtons >
+            <apex:commandButton value="Save" action="{!recordinsert}"/>
+      </apex:pageBlockButtons>     
+    </apex:pageBlock>
+ 
+ 
+ 
+ </apex:form>
+</apex:page>

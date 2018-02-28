@@ -1,0 +1,23 @@
+<apex:page showHeader="false" sidebar="false" standardController="Opportunity" recordSetVar="opp">
+ <style>
+  .center {
+    margin: auto;
+    width: 10%;
+    padding: 10px;
+}
+ </style>
+ <apex:form >
+  <apex:pageBlock >
+    <apex:pageblockTable value="{!opp}" var="op">
+       <apex:column value="{!op.name}"/>
+       <apex:column value="{!op.account.name}"/>
+       <apex:column value="{!op.type}"/>
+       <apex:column value="{!op.amount}"/>
+       <apex:inlineEditSupport />
+    </apex:pageblockTable>
+  </apex:pageBlock>
+  <p class="center">
+  <apex:commandButton value="Quick Save" action="{!quicksave}" />
+  </p>
+ </apex:form> 
+</apex:page>

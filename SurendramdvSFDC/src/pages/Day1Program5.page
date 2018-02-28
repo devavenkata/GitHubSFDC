@@ -1,0 +1,20 @@
+<apex:page showHeader="false" sidebar="false" standardController="Account" recordsetVar="acc">
+  <apex:stylesheet value="{!URLFOR($Resource.Styles)}"/>
+  <apex:form >
+    <apex:pageBlock >
+      <apex:pageBlockTable value="{!acc}" var="ac">
+        <apex:column value="{!ac.name}"/>
+      </apex:pageBlockTable>
+      <apex:pageBlockSection >
+       <apex:pageBlockSectionItem >
+         <apex:inputField value="{!account.name}"/>
+       </apex:pageBlockSectionItem>      
+       <apex:pageblockSectionItem >
+        <apex:inputField value="{!account.industry}"/>
+       </apex:pageblockSectionItem>
+       <apex:commandButton value="Save" action="{!save}"/>
+      </apex:pageBlockSection>
+    </apex:pageBlock>
+    <apex:pagemessages ></apex:pagemessages> 
+  </apex:form>
+</apex:page>

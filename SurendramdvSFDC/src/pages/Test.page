@@ -1,0 +1,242 @@
+<apex:page >
+ <h1>Q1) There is a child object on Cases that stores customer surveys in response to how the case was handled.  Please find all cases (Case) that have a Survey (Survey_Response__c) where the Agent Rating is 5.  Then, change the subject on the case so that it appends (AWESOME) to the end of the subject.  For example, if the Case Subject is “Broken HR Strap” I’d like it to say “Broken HR Strap (AWESOME)”.  Instead of hardcoding these values into the class, create a VF Page form that has 2 fields for the parameter entry, so if I want, I can change the search parameter for Agent Rating to “1” and append the subject with (NOT AWESOME) instead
+  </h1> <br/><br/>
+  
+  <p>See the Answer in Source </p>
+ 
+    <!--
+  <apex:page tabStyle="Survey_Response__C" standardController="Survey_Response__c">
+  <apex:form >
+  <apex:sectionHeader title="Survey Response"/>
+  <apex:pageblock >
+   <apex:pageblockButtons >
+       <apex:commandButton action="{!save}" value="save"/>
+       <apex:commandButton action="{!cancel}" value="cancel"/>
+   </apex:pageblockButtons>
+   <apex:pageblocksection title="Surverys" columns="1">
+    <apex:pageblockSectionItem >
+      Survey Name: <apex:outputField value="{!Survey_Response__c.Name}" />
+    </apex:pageblockSectionItem>
+    <apex:pageblockSectionItem >
+      Case Number <apex:inputField value="{!Survey_Response__c.Case__c}" />
+    </apex:pageblockSectionItem>
+    <apex:pageblocksectionItem >
+      Agent Rating <apex:inputField value="{!Survey_Response__c.Agent_Rating__c}" />  
+    </apex:pageblocksectionItem>
+   </apex:pageblocksection>
+  </apex:pageblock>
+ 
+ </apex:form>
+</apex:page>
+
+ -Trigger
+
+trigger SurveyResponse on Survey_Response__c (after insert,after update) {
+
+ list<Survey_Response__c> srv = trigger.new;
+
+   for(Survey_Response__c c :srv)
+   {
+     if(c.Agent_Rating__c !=null)
+     {
+
+       list<Case> cas = [select CaseNumber,Subject from Case where id =: c.caseNumber__c];
+     System.debug('inside case number logic'+cas.size());
+       for(Case cc: cas)
+       {
+       System.debug('inside case number logic for loop');
+          String s; 
+          if(c.Agent_Rating__c > 4)
+          {
+              s = ' (AWESOME)';
+          }   
+           else
+           {
+               s = ' (NOT AWESOME)';
+           }
+          cc.Subject = cc.Subject + s;
+          update cc;
+       }
+     }
+   } 
+
+}
+
+
+  -->  
+ <h1>Q2)Create a Trigger so that every time a user from Guatemala is created, add them to a “I Love MX” Public Group.
+  </h1>
+ <br/><br/>
+  
+  <p>See the Answer in Source </p>
+  
+ <!--
+  trigger ilovemx on User (after insert) {
+    List<GroupMember> GMlist = new List<GroupMember>();
+    List<User> usrObj = trigger.new;
+    System.debug('in insert');
+    for(User U : usrObj) {
+         System.debug('in is active'+U.Country);
+        if(U.Country == 'Guatemala') {
+            System.debug('in cuetamala');
+            GroupMember GM = new GroupMember();
+            GM.GroupId = '00Go0000000jinrEAA';
+            GM.UserOrGroupId = U.id;
+            System.debug('User id value'+u.Id);
+            GMList.add(GM);         
+        }
+       } 
+     
+    if(!GMList.isEmpty()) {
+        System.debug('Group Member List is ' + GMList.size());
+        insert GMList;
+    }
+    
+  }
+
+ -->
+ <h1>Q3)Assume you've written an Apex method that makes a callout to a non-Salesforce hosted REST API.  You've just gotten this json in the response body:
+ 
+{"userDevices":[{"asserts":[" 2015-8-06 22:48:00"," 2015-8-06 22:48:00"],"battery":{"percentage":20,"voltage":3745},"deviceId":29308103,"deviceSerialNumber":"12EB5676534B","deviceType":"Charge HR","deviceWireId":"eb5672212b12","fwVersionRaw":"APP18.84 BSL18.84","hardwareVersion":"9","lastSyncClient":"api/sync-CLIENT-VISIBLE/mobile-ios/401","lastSyncedAt":"2015-08-10T13:27:56.000Z","pairedAt":"2015-04-10T19:51:15.000Z","pairedToEmail":"afitbitter@somewhere.com"}]}
+ 
+Write a method to parse the json, extract the 'voltage' and 'pairedAt' values, and show both values on the VFP.
+  </h1>
+
+<br/><br/>
+  
+  <p>See the Answer in Source </p>
+ 
+
+<!--
+  public class ParseJSON{
+    
+    public string reqJSON = '{"userDevices":[{"asserts":[" 2015-8-06 22:48:00"," 2015-8-06 22:48:00"],"battery":{"percentage":20,"voltage":3745},"deviceId":29308103,"deviceSerialNumber":"12EB5676534B","deviceType":"Charge HR","deviceWireId":"eb5672212b12","fwVersionRaw":"APP18.84 BSL18.84","hardwareVersion":"9","lastSyncClient":"api/sync-CLIENT-VISIBLE/mobile-ios/401","lastSyncedAt":"2015-08-10T13:27:56.000Z","pairedAt":"2015-04-10T19:51:15.000Z","pairedToEmail":"afitbitter@somewhere.com"}]}'; 
+    
+    
+    public ReqWrapper userDevices{get;set;}
+    
+    public pageReference parseStr()
+    {
+          JSONParser parser = JSON.createParser(reqJSON);
+            while (parser.nextToken() != null) {
+                   
+                    if (parser.getCurrentToken() == JSONToken.START_ARRAY) {
+                    
+                      while (parser.nextToken() != null) {
+                      if (parser.getCurrentToken() == JSONToken.START_OBJECT) {
+                      userDevices= ( ReqWrapper)parser.readValueAs(ReqWrapper.class);                     
+                      }
+                     }
+                 }
+                }
+         
+               return null;
+            }
+        
+     
+    //This will be the main wrapper for JSON
+      public class ReqWrapper
+  {
+      public String pairedAt{get;set;}
+ 
+      public Battery battery{get;set;}
+    
+  }
+    
+   public class Battery
+  {
+     public Integer percentage{get;set;}
+     public Integer voltage{get;set;}
+  }   
+}      
+
+<apex:page action="{!parseStr}" controller="ParseJSON">
+        <apex:pageBlock title="User Devices:" id="userdevicepanel">
+        <apex:pageBlockSection >
+          <apex:outputText label="Voltage" value="{!userDevices.battery.voltage}"></apex:outputText>
+           <apex:outputText label="Paired At" value="{!userDevices.pairedAt}"></apex:outputText>  
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+</apex:page>
+-->
+   
+    <h1>Q4)I have an object called Flags.  There are 3 records in it, Red Flag, Yellow Flag, and Green Flag.  The only field it has is a boolean value for “Is this Flag Raised?”.  I want the VF Page to display the current Flag Raised status of the Red Flag ONLY. 
+  </h1>
+ <br/><br/>
+  
+  <p>See the Answer in Source </p>
+ 
+ 
+ <!--   
+<apex:page standardController="Flag__c" sidebar="false" recordSetVar="Flag__c" extensions="flagFilterClass">
+ <apex:pageBlock title=" Flag status">
+   <apex:pageBlockTable value="{!flagCases}" var="flg">
+      <apex:column value="{!flg.CaseNumber__c}"/>
+      <apex:column value="{!flg.Name}"/>
+      <apex:column value="{!flg.Is_this_Flag_Raised__c}"/>
+   </apex:pageBlockTable>
+ </apex:pageBlock>
+</apex:page>
+
+public class flagFilterClass {
+
+    public List<Flag__c> flagCases {get;set;}
+    public flagFilterClass(ApexPages.StandardSetController controller) {
+     getFlagCases();
+    }
+    
+    public void getFlagCases() {
+        flagCases= new List <Flag__c> ();
+        flagCases= [SELECT Name,CaseNumber__c,Is_this_Flag_Raised__c
+                             FROM Flag__c
+                             WHERE Name = 'Red Flag'                             
+                             ];
+            System.debug('Flag Details' + flagCases);
+    }
+    
+
+}
+
+
+-->
+    <h1>Q5) You’ll notice that there’s a Lookup from Flags to Cases.  On Cases, there are 3 blank fields: a User Lookup field (Owner_of_Last_Flag__c), and 2 text fields  (Name_of_Owner_of_Last_Flag_Added__c and SFDC_ID_of_Last_Flag_Owner_Added__c).  Write an APEX Trigger so that when a flag record is created, IF there is a case associated with the flag .. Update these 3 fields with the appropriate information from the case.  Example: I create a Flag with no case attached = Nothing happens.  If I create a flag called “Maroon Flag” and have a Case Number on it, that case should have Owner_of_Last_Flag__c populate with my SFDC Account, and the Name and SFDC_ID fields populated with text of my name and my sfdc record id.
+  </h1>
+ <br/><br/>
+  
+  <p>See the Answer in Source </p>
+ 
+ <!--   
+trigger FlagtoCasesTrigger on Flag__c (after insert) {
+
+ list<flag__c> flc = trigger.new;
+
+ if(trigger.isInsert)
+ {
+   for(flag__c c :flc)
+   {
+     if(c.CaseNumber__c !=null)
+     {
+
+       list<Case> cas = [select CaseNumber,Owner_of_Last_Flag__c, Name_of_Owner_of_Last_Flag_Added__c,SFDC_ID_of_Last_Flag_Owner_Added__c from Case where id =: c.caseNumber__c];
+     System.debug('inside case number logic'+cas.size());
+       for(Case cc: cas)
+       {
+       System.debug('inside case number logic for loop');
+          cc.Owner_of_Last_Flag__c = UserInfo.getUserName();
+          cc.Name_of_Owner_of_Last_Flag_Added__c = UserInfo.getName();
+          cc.SFDC_ID_of_Last_Flag_Owner_Added__c = UserInfo.getUserId();
+          System.debug('trigger Falg User Name'+UserInfo.getUserName());
+          update cc;
+       }
+     }
+   } 
+ }
+}
+  -->
+    <h1>Q6)Please create a section on the VF Page that allows me to raise and lower the Green Flag whenever I want.  Then, please type the answer to this question on the VF Page: In reference to the Green Flag question above: Would I still be able to raise the flag if I am viewing this VF Page while logged into an account that does not have permission to the Green Flag record?       
+    </h1>
+    
+    
+    
+   -->
+</apex:page>

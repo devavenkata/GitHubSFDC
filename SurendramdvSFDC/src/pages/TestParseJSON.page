@@ -1,0 +1,8 @@
+<apex:page controller="ParseJSON" action="{!parseStr}">
+        <apex:pageBlock title="User Devices:" id="userdevicepanel">
+        <apex:pageBlockSection >
+          <apex:outputText label="Voltage" value="{!userDevices.battery.voltage}"></apex:outputText>
+           <apex:outputText label="Paired At" value="{!userDevices.pairedAt}"></apex:outputText>  
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+</apex:page>

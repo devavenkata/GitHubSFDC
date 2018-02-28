@@ -1,0 +1,40 @@
+<apex:page controller="SearchpageexamController">
+  <script>
+    function runSearch()
+    {
+       var str= document.getElementById('{!$Component.frm.crit_pb.crit_pbs.crit_str}').value;
+
+       if(str.length>= 2)
+       {
+         doSearchJS();
+       }
+       else
+       {
+         clearResults();
+         alert('Please enter atleast two charecters');
+       }
+    }
+  
+  </script>
+  <apex:sectionHeader title="Account Search"/>
+  <apex:form id="frm">
+     <apex:actionFunction name="doSearchJS" action="{!DoSearch}"/>
+     <apex:actionFunction name="clearResults" action="{!clearForm}"/>
+     <apex:pageblock title="Criteria" id="crit_pb">
+       <apex:pageBlockSection id="crit_pbs" columns="1">           
+           <b>Search :</b><apex:inputText id="crit_str" value="{!search_str}"/><apex:outputText style="font-style:italic">Enter Atleast two Charecters</apex:outputText>
+           <apex:commandButton value="Go" onclick="runSearch();return false;"/>
+       </apex:pageBlockSection>
+     </apex:pageblock>
+     <apex:pageBlock title="Results" id="results">
+       <apex:pageblockTable value="{!results}" var="acc" rendered="{!resultsAvailable}">
+         <apex:column value="{!acc.name}"/>
+         <apex:column value="{!acc.type}"/>
+         <apex:column value="{!acc.industry}"/>         
+       </apex:pageblockTable>
+       <apex:outputpanel rendered="{!NOT(resultsAvailable)}">
+          <h2> No Results Available </h2>
+       </apex:outputpanel>     
+     </apex:pageBlock>
+  </apex:form>    
+</apex:page>

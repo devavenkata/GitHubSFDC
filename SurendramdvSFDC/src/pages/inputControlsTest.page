@@ -1,0 +1,53 @@
+<apex:page standardController="Account">
+  <apex:form >
+     Input Text : <apex:inputText /> <br/>
+     Account Name (InputText) <apex:inputText value="{!Account.Name}" /><br/> 
+     Account Industry (InputText) <apex:inputText value="{!Account.Industry}" /><br/>  
+     Account Name (InputText) <apex:inputField value="{!Account.Name}" /><br/> 
+     Account Industry (InputText) <apex:inputField value="{!Account.Industry}" /><br/>  
+     Account Name (InputSecrect) <apex:inputSecret value="{!Account.Name}" /><br/> 
+     Account Name (InputHidden) <apex:inputHidden value="{!Account.Name}" /><br/> 
+
+     Checkbox <apex:inputCheckbox /><br/>
+     Text Area <apex:inputTextArea cols="20" />
+     <br/>
+     <br/>
+     
+ <apex:selectList size="1">
+   <apex:selectOption itemLabel="-None-" itemValue="None"/>
+   <apex:selectOption itemLabel="Jan" itemValue="one"/>
+   <apex:selectOption itemLabel="Feb" itemValue="two"/>
+   <apex:selectOption itemLabel="Mar" itemValue="three" itemDisabled="true"/>
+   <apex:selectOption itemLabel="Apr" itemValue="Four" itemDisabled="true"/>
+</apex:selectList>
+
+<apex:selectCheckboxes label="MyChoice" borderVisible="true" legendInvisible="false" legendText="My Label 123">
+   <apex:selectOption itemLabel="-None-" itemValue="None"/>
+   <apex:selectOption itemLabel="Jan" itemValue="one"/>
+   <apex:selectOption itemLabel="Feb" itemValue="two"/>
+   <apex:selectOption itemLabel="Mar" itemValue="three" itemDisabled="true"/>
+   <apex:selectOption itemLabel="Apr" itemValue="Four" itemDisabled="true"/>
+</apex:selectCheckboxes>
+
+  <apex:pageBlock title="page Bloc title" helpTitle="needhelp" helpUrl="/apex/page1">
+     <apex:outputLabel value="Enter Name"/>
+     <apex:inputText id="one"/>
+  </apex:pageBlock>   
+
+  <apex:pageBlock title="Block 2">
+    <apex:commandButton value="My Button" action="{!save}"/>
+  </apex:pageBlock>   
+
+  <apex:pageBlock title="Block 3">
+    <apex:pageblockButtons >
+          <apex:commandButton value="Save" action="{!save}"/>
+          <apex:commandButton value="Cancel" action="{!cancel}"/> 
+    </apex:pageblockButtons>    
+     <apex:outputLabel value="Enter Name"/>
+     <apex:inputText id="one"/>
+
+  </apex:pageBlock>   
+
+     
+  </apex:form>
+</apex:page>

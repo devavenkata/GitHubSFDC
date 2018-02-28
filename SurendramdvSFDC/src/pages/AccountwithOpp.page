@@ -1,0 +1,13 @@
+<apex:page controller="AccountwithOppController">
+   <apex:form >
+       <apex:pageblock title="Account with Opportunity Stage Closed Won">
+           <apex:pageblockTable value="{!accountVal}" var="acc">
+              <apex:column value="{!acc.name}"/>
+              <apex:column value="{!acc.Phone}"/>
+              <apex:column value="{!acc.owner.name}"/>                         
+           </apex:pageblockTable>
+       
+       </apex:pageblock>
+   </apex:form>
+
+</apex:page>

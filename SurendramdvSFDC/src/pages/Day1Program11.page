@@ -1,0 +1,24 @@
+<apex:page showHeader="false" sidebar="false" standardController="account" recordSetVar="acc">
+ <apex:form >
+   <apex:pageblock >
+     <apex:pageblockSection >
+         <apex:pageblock >
+           <apex:pageBlockTable value="{!acc}" var="ac">
+              <apex:column >
+                <apex:commandLink value="{!ac.name}" reRender="renderDetail">
+                <apex:param name="AccountName" value="{!ac.name}"/>
+                <apex:param name="AccountId" value="{!ac.id}"/>
+               </apex:commandLink> 
+              </apex:column>
+              <apex:column value="{!ac.type}"/>
+              <apex:column value="{!ac.phone}"/>
+              <apex:column value="{!ac.industry}"/>                                          
+           </apex:pageBlockTable>
+         </apex:pageblock>
+         <apex:pageBlock id="renderDetail" title="{!$CurrentPage.parameters.Accountname}"> 
+           <apex:detail subject="{!$CurrentPage.parameters.AccountId}" relatedList="false"/>
+         </apex:pageBlock>
+     </apex:pageblockSection>
+   </apex:pageblock>
+ </apex:form>
+</apex:page>

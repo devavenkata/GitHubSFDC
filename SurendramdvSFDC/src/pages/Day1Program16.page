@@ -1,0 +1,34 @@
+<apex:page showHeader="false" sidebar="false" controller="SearchContactsController">
+  <style>
+  .filterDiv{padding:10px;}
+  lable{padding:10px;}
+</style>
+<apex:form >
+  <apex:image value="{!$Resource.banner}" width="100%" height="100px"/>
+  <!-- action function for calling controller method -->
+ <apex:actionFunction action="{!doQuery}" name="apexDoQuery" rerender="myData"/>
+
+ <!-- Filter Section-->
+ <div class="filterDiv">
+   <label> Filter by Last Name </label>
+   <apex:inputText value="{!searchString}" onkeyup="apexDoQuery()"/>
+ </div>
+ <apex:pageBlock title="Nominate Contacts" id="myData">
+ <apex:pageblockButtons >
+   <apex:commandButton value="save" action="{!save}"/>
+ </apex:pageblockButtons>
+   <apex:pageblockTable value="{!contacts}" var="con">
+       <apex:column headerValue="Name">
+          <a href="/{!con.id}">  
+            <apex:outputField value="{!con.name}"/>
+          </a>
+       </apex:column>
+       <apex:column value="{!con.accountId}"/>
+       <apex:column >
+          <apex:inputField value="{!con.email}"/>
+       </apex:column>
+       <apex:column value="{!con.phone}"/>          
+   </apex:pageblockTable>
+ </apex:pageBlock>
+</apex:form>
+</apex:page>

@@ -1,0 +1,19 @@
+<apex:page showHeader="false" sidebar="false" controller="ControllerTest">
+  <apex:form >
+    <apex:pageBlock >
+       <apex:pageblockTable value="{!myaccounts}" var="c">
+         <apex:column >
+           <apex:commandLink action="{!accountclicked}" rerender="contactDetail">
+              {!c.name}
+              <apex:param name="acctName" value="{!c.id}" assignTo="{!selectedAccount}"/>
+           </apex:commandLink>           
+         </apex:column>
+       </apex:pageblockTable>
+    </apex:pageBlock>
+  </apex:form>
+  <apex:outputPanel id="contactDetail">
+    <apex:repeat value="{!contactsInformation}" var="contd">
+       <p>{!contd.FirstName &''& contd.LastName}</p>
+    </apex:repeat>
+  </apex:outputPanel>
+</apex:page>

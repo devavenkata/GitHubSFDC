@@ -1,0 +1,9 @@
+<apex:page controller="accountDetailsrecord" tabStyle="Account">
+  <apex:form >
+    <apex:tabPanel >
+      <apex:tab label="Detail">
+        <apex:detail title="true" relatedList="false"/>
+      </apex:tab>    
+    </apex:tabPanel>
+  </apex:form>
+</apex:page>

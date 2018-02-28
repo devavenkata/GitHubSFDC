@@ -1,0 +1,7 @@
+<apex:page sidebar="false" >
+    <marquee>  
+     <b style="color: rgb(204, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: medium;">Salesforce will be conducting emergency maintenance tonight, 14-Oct-14, from 7:00-8:00pm Pacific Time.&nbsp; Salesforce.com will not be available during this time.&nbsp; We extend Salesforce's apologies for this inconvenience.</b>  
+  </marquee>  
+  <apex:enhancedList type="Account" height="300" rowsPerPage="10" id="AccountList"/>
+  <apex:enhancedList type="Lead" height="300" rowsPerPage="25" id="LeadList" customizable="False" />  
+</apex:page>

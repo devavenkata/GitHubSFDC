@@ -1,0 +1,18 @@
+<apex:page controller="TestController">
+  
+  <apex:form >
+      <apex:dataList value="{!myaccounts}" var="c">
+      <apex:commandLink action="{!accountClicked}" rerender="contactDetail">
+        <apex:outputText value="{!c.name}"/>
+        <apex:param name="acctName" value="{!c.Id}" assignTo="{!selectAccount}" />
+      </apex:commandLink>  
+    </apex:dataList>
+  </apex:form>
+  <apex:outputPanel id="contactDetail">
+     <apex:pageblock >
+      <apex:pageBlockTable value="{!contactInfo}" var="condt">
+          <apex:column value="{!condt.FirstName}"/>
+      </apex:pageBlockTable>
+    </apex:pageBlock>  
+  </apex:outputPanel>
+</apex:page>

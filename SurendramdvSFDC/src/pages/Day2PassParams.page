@@ -1,0 +1,8 @@
+<apex:page standardController="Contact" >
+    
+    <apex:outputLink value="http://google.com/search">
+        Search Google
+        <apex:param name="q" value="{!contact.name}"/>
+    </apex:outputLink><br/>
+    <apex:outputLink value="http://www.google.com/search?q={!contact.name}">Search Google Type 2</apex:outputLink>
+</apex:page>

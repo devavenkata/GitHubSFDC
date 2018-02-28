@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StaticResource xmlns="http://soap.sforce.com/2006/04/metadata">
+    <cacheControl>Public</cacheControl>
+    <contentType>image/png</contentType>
+    <description>People Image from : http://free-121d5f44d20-121d603d1c5-121ee2b8103.force.com/force2b/salesforceicons</description>
+</StaticResource>

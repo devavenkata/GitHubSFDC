@@ -1,0 +1,9 @@
+<apex:page showChat="true" showHeader="false" sidebar="false" standardController="account">
+ <apex:form >
+   <p> Todays Date {!Today()}</p>
+   <p> Is it true ? {!Contains('salesforce.com','force.com')}</p>
+   <p> Check Value : {!IF(DAY(TODAY()) >14 , 'After the 14th','On or before the 14th')}</p>
+   <apex:detail relatedList="false"/>
+ </apex:form>
+    <apex:relatedList list="cases"/>
+</apex:page>

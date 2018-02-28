@@ -1,0 +1,9 @@
+<apex:page standardController="Flag__c" sidebar="false" recordSetVar="Flag__c" extensions="flagFilterClass">
+ <apex:pageBlock title=" Flag status">
+   <apex:pageBlockTable value="{!flagCases}" var="flg">
+      <apex:column value="{!flg.CaseNumber__c}"/>
+      <apex:column value="{!flg.Name}"/>
+      <apex:column value="{!flg.Is_this_Flag_Raised__c}"/>
+   </apex:pageBlockTable>
+ </apex:pageBlock>
+</apex:page>

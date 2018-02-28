@@ -1,0 +1,8 @@
+<apex:page showHeader="false" sidebar="false">
+   <apex:sectionHeader title="First Page" subtitle="New Page" description="This is test section" help="http://www.google.com"/>
+{!$User.FirstName} {!$User.LastName} <br/>
+  {!$Profile.Name} <br/>
+  {!$Organization.Name}
+  {!$CurrentPage.parameters.param1}
+  <apex:iframe src="https://dev-tableau.cisco.com/t/SC_PLAN-BMW/views/BMW_Dashboard_POC/BMWDashboardPOC?:embed=y&:display_count=no" scrolling="false" id="iframe_id" width="1300" height="800"/>
+   </apex:page>

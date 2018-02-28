@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>payment360_REST_API_oauth</fullName>
+    <apiAccessLevel>Unrestricted</apiAccessLevel>
+    <modules>
+        <module>
+            <label>payment360_REST_API_oauth</label>
+            <moduleType>connected</moduleType>
+            <name>payment360_REST_API_oauth</name>
+            <types>
+                <members>payment360_REST_API_oauth_devConfig</members>
+                <name>ConnectivityDevConfigMetadata</name>
+            </types>
+            <types>
+                <members>bt_stripe__payment360_REST_API_oauth</members>
+                <name>Module</name>
+            </types>
+            <version>16.0</version>
+        </module>
+    </modules>
+    <namespacePrefix>bt_stripe</namespacePrefix>
+    <version>36.0</version>
+</Package>

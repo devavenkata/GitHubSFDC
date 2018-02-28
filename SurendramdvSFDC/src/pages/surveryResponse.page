@@ -1,0 +1,24 @@
+<apex:page tabStyle="Survey_Response__c" standardController="Survey_Response__c">
+ <apex:form >
+  <apex:sectionHeader title="Survey Response"/>
+  <apex:pageblock >
+   <apex:pageblockButtons >
+       <apex:commandButton action="{!save}" value="save"/>
+       <apex:commandButton action="{!cancel}" value="cancel"/>
+   </apex:pageblockButtons>
+   <apex:pageblocksection title="Surverys" columns="1">
+    <apex:pageblockSectionItem >
+      Survey Name: <apex:outputField value="{!Survey_Response__c.Name}" />
+    </apex:pageblockSectionItem>
+    <apex:pageblockSectionItem >
+      Case Number <apex:inputField value="{!Survey_Response__c.CaseNumber__c}" />
+    </apex:pageblockSectionItem>
+    <apex:pageblocksectionItem >
+      Agent Rating <apex:inputField value="{!Survey_Response__c.Agent_Rating__c}" />  
+    </apex:pageblocksectionItem>
+   </apex:pageblocksection>
+  </apex:pageblock>
+ 
+ </apex:form>
+
+</apex:page>

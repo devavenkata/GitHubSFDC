@@ -1,0 +1,12 @@
+<apex:page standardController="Account" extensions="getContactFromAccount">
+    <apex:form >
+        <apex:pageBlock title="Contact List" id="ContactId">
+            <apex:pageBlockTable value="{!Contacts}" var="c">
+                <apex:column value="{!c.LastName}"/>
+                <apex:column value="{!c.Title}"/>
+                <apex:column value="{!c.Email}"/>
+                <apex:column value="{!c.Phone}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,17 @@
+<apex:page standardController="Account">
+  <apex:form id="fm1">
+      <apex:pageBlock id="pb1">
+          <apex:pageblockSection id="pbs1">
+              <apex:inputHidden value="{!Account.Name}" id="one"/>
+              <apex:commandButton value="click" onclick="Show()"/>
+           <script>
+             function Show()
+             {
+              var myName = document.getElementById("{!$Component.one}").value;
+              alert(myName);
+             }           
+           </script>  
+          </apex:pageblockSection>
+      </apex:pageBlock>
+  </apex:form>
+</apex:page>

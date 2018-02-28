@@ -1,0 +1,12 @@
+<apex:page controller="PositionQuery" contentType="application/vnd.ms-excel#positionExcel.xls" cache="true">
+  <apex:pageblock title="Position Exported Data">
+    <apex:pageblockTable value="{!cs}" var="pos">
+       <apex:column value="{!pos.name}"/>
+       <apex:column value="{!pos.Max_Pay__c}"/>
+       <apex:column value="{!pos.Min_Pay__c}"/>
+       <apex:column value="{!pos.Location__c}"/>       
+    </apex:pageblockTable>
+  
+  </apex:pageblock>
+
+</apex:page>

@@ -1,0 +1,39 @@
+<apex:page controller="TableController" sidebar="false" wizard="true">
+  <style type="text/css">
+   .outBorder {
+    border:1px outset black;
+   }
+   .inBorder{
+    border-top:1px solid blue;
+    border-left:1px solid blue;
+   }
+  </style>
+  <apex:form >
+   <apex:pageBlock title="Data Table">
+    <apex:dataTable value="{!accList}" var="a" styleclass="outBorder" width="1000px">
+    
+       <apex:column styleclass="inBorder" style="text-align:center" >
+        <apex:facet name="header">Image </apex:facet> 
+        <apex:image value="{!$Resource.PeopleImage}"  />        
+      </apex:column>
+      
+      
+      <apex:column styleclass="inBorder">
+        <apex:facet name="header">Account Name </apex:facet> 
+        <apex:outputText >{!a.Name}</apex:outputText>
+      </apex:column>
+      
+      <apex:column styleclass="inBorder">
+        <apex:facet name="header">Account type </apex:facet>
+        <apex:outputText >{!a.type}</apex:outputText>
+      </apex:column>      
+      
+      <apex:column styleclass="inBorder">
+        <apex:facet name="header">Account Industry </apex:facet>
+        <apex:outputText >{!a.industry}</apex:outputText>
+      </apex:column>      
+    
+    </apex:dataTable>   
+   </apex:pageBlock>  
+  </apex:form> 
+ </apex:page>

@@ -1,0 +1,19 @@
+<apex:page showHeader="false" controller="ContactsController">
+  <apex:form >
+  <apex:image value="{!$Resource.banner}" width="100%"/>
+  <apex:pageBlock title="Nominate Contacts">
+  <apex:pageblockButtons >
+    <apex:commandButton value="save" action="{!save}"/>
+  </apex:pageblockButtons>
+    <apex:pageblockTable value="{!contacts}" var="con">
+        <apex:column value="{!con.id}"/>
+        <apex:column value="{!con.name}"/>
+        <apex:column value="{!con.accountId}"/>
+        <apex:column >
+           <apex:inputField value="{!con.email}"/>
+        </apex:column>
+        <apex:column value="{!con.phone}"/>           
+    </apex:pageblockTable>
+  </apex:pageBlock>
+ </apex:form> 
+</apex:page>

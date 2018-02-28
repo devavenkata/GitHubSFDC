@@ -1,0 +1,40 @@
+<apex:page controller="wrapperController">
+   <apex:form >
+      <apex:pageBlock >
+         <apex:pageblockButtons >
+         <apex:commandButton action="{!ProcessSelected}" value="Show Selected Accounts" rerender="block2"/>
+         </apex:pageblockButtons>
+         <apex:pageBlockSection >
+           <apex:pageBlockTable value="{!lstWrapperString}" var="wrap">
+             <apex:column headerValue="Action">
+                 <apex:inputCheckbox />
+             </apex:column>
+             <apex:column headerValue="Position Name">
+               {!wrap.PName}
+             </apex:column>
+             <apex:column headerValue="Location">
+               {!wrap.PLocation}
+             </apex:column>         
+             <apex:column headerValue="Max Pay">
+               {!wrap.PMaxpay}
+             </apex:column>  
+             <apex:column headerValue="First Name">
+               {!wrap.CFname}
+             </apex:column>                                              
+             <apex:column headerValue="Last Name">
+               {!wrap.CLname}
+             </apex:column>                                              
+           </apex:pageBlockTable>         
+         </apex:pageBlockSection>  
+         <apex:pageblockSection >
+            <apex:pageblockTable value="{!selectedAccounts}" var="sa" id="block2">
+              <apex:column value="{!sa.name}"/>
+              <apex:column value="{!sa.location}"/>
+              <apex:column value="{!sa.maxpay}"/>              
+              <apex:column value="{!sa.fname}"/>              
+              <apex:column value="{!sa.lname}"/>              
+            </apex:pageblockTable>
+         </apex:pageblockSection>    
+      </apex:pageBlock>     
+   </apex:form>
+</apex:page>

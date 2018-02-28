@@ -1,0 +1,48 @@
+<apex:page standardController="Candidate__c" extensions="WrapperClassonCandidate">
+<script>
+ function validateCheckBox(pbchkk)
+ {
+    var inputElem = document.getElementsByTagName("input");
+    var k = 0;
+    for( var i = 0; i<inputElem.length;i++)
+    {
+
+       if(inputElem[i].id.indexOf(pbchkk)!=-1)
+       {
+         if(inputElem[i].checked)
+        {
+          k++;
+        }
+       }       
+    }
+    if(k==0) 
+    {
+      alert("Please Check the Checkbox");
+    }
+    else
+    {
+      callsendEmail();
+      alert("Email Has been Sent");
+
+    }
+ 
+ }
+</script>
+<apex:form id="frm">
+ <apex:actionFunction action="{!SendEmail}" name="callsendEmail" rerender="pb"/>
+ <apex:pagemessages ></apex:pagemessages>
+ <apex:pageBlock id="pb">
+   <apex:pageBlockTable value="{!wrapperObj}" var="x" id="pbtbl">
+      <apex:column value="{!x.conobj.First_Name__c}"/>
+      <apex:column value="{!x.conobj.Email_Id__c}" />  
+      <apex:column >
+      <apex:inputCheckbox id="pbchk" value="{!x.checkBox}" />
+      </apex:column>
+   </apex:pageBlockTable>
+
+   <apex:pageblockSection >
+    <apex:commandButton value="Send Email" onClick="validateCheckBox('pbchk')"/>
+   </apex:pageblockSection>
+ </apex:pageBlock>
+</apex:form>
+</apex:page>

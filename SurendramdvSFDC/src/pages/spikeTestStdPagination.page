@@ -1,0 +1,18 @@
+<apex:page standardController="Contact" recordSetVar="acc">
+ <apex:form id="stdName">
+    <apex:pageBlock id="pbd">
+        <apex:pageBlockTable value="{!acc}" var="c">
+            <apex:column value="{!c.Name}"/>
+            <apex:column value="{!c.Id}"/>
+        </apex:pageBlockTable>
+        <apex:panelGrid columns="8">
+           <apex:commandButton value="First" action="{!first}" reRender="pbd"/>
+           <apex:commandButton value="Next" action="{!next}" reRender="pbd"/>
+           <apex:commandButton value="Previous" action="{!previous}" reRender="pbd"/>
+           <apex:commandButton value="Last" action="{!last}" reRender="pbd"/>
+        </apex:panelGrid>    
+    </apex:pageBlock>
+ 
+ </apex:form>
+  
+</apex:page>

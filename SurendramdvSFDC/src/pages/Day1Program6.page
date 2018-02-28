@@ -1,0 +1,27 @@
+<apex:page showHeader="false" standardController="Account" recordSetVar="accc">
+ <apex:pageBlock >
+   <apex:outputPanel id="condetailes">
+     <apex:detail relatedList="false" title="false" subject="{!$CurrentPage.parameters.cid}"/>
+   </apex:outputPanel>
+ </apex:pageBlock>
+ <apex:pageBlock >
+  <apex:form >
+    <apex:pageBlock >
+      <apex:pageBlockTable value="{!accc}" var="acx">
+        <apex:column >
+          <apex:commandLink reRender="condetailes">
+             {!acx.name}
+             <apex:param name="cid" value="{!acx.id}"/>
+          </apex:commandLink>
+        </apex:column>
+      </apex:pageBlockTable>
+    </apex:pageBlock>
+        <apex:dataList value="{!accc}" var="cont">
+      <apex:commandLink rerender="condetailes">
+         {!cont.name}
+         <apex:param name="cid" value="{!cont.id}"/>
+      </apex:commandLink>
+    </apex:dataList>
+  </apex:form>
+ </apex:pageBlock>
+</apex:page>
