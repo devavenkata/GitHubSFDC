@@ -2,7 +2,7 @@ public class AA {
    public integer i = 20;
    public void diplayA()
    {
-       system.debug('I value is : '+ i);
+       system.debug('I value is as : '+ i);
    }
     
 }
